@@ -79,8 +79,14 @@ iostream
 -
 random
 -
+future
+-
+thread
+-
 TrafficLight.h
 /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
+TrafficObject.h
+/home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
 
 /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
 mutex
@@ -88,6 +94,10 @@ mutex
 deque
 -
 condition_variable
+-
+chrono
+-
+thread
 -
 TrafficObject.h
 /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h

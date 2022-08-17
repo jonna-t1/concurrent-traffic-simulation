@@ -57,7 +57,6 @@ void TrafficLight::cycleThroughPhases()
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
 
-
 // generate number between 4 and 6 as a random number, 
 // you can use random library and mt19937 to generate random number also you can use srand with some calculations to get it
 
@@ -89,14 +88,7 @@ void TrafficLight::cycleThroughPhases()
 
         double elapsed_time_ms = std::chrono::duration<double, std::milli>(startT-endT).count(); // ms
 
-        // std::future<void> snd = std::async(
-        //     std::launch::async,
-        //     &MessageQueue<TrafficLightPhase>::send,
-        //     &_messageQueue,
-        //     std::move(_currentPhase)
-        // );
-        // snd.wait();
-        // std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 }
 

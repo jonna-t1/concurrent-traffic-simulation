@@ -6,6 +6,8 @@
 #include <condition_variable>
 #include <chrono>
 
+#include <thread>
+
 #include "TrafficObject.h"
 
 // forward declarations to avoid include cycle
@@ -38,7 +40,7 @@ enum TrafficLightPhase {
     green
 };
 
-class TrafficLight
+class TrafficLight : TrafficObject
 {
 public:
     // constructor / desctructor

@@ -3,8 +3,6 @@
 #include <chrono>
 #include "TrafficObject.h"
 
-using std::chrono::high_resolution_clock;
-
 // init static variable
 int TrafficObject::_idCnt = 0;
 

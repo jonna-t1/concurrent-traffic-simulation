@@ -3,10 +3,13 @@
 #include <chrono>
 #include "TrafficObject.h"
 
+using std::chrono::high_resolution_clock;
+
 // init static variable
 int TrafficObject::_idCnt = 0;
 
 std::mutex TrafficObject::_mtx;
+
 
 void TrafficObject::setPosition(double x, double y)
 {

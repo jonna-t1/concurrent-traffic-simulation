@@ -1,10 +1,10 @@
 #include <iostream>
 #include <random>
+#include <future>
 #include "TrafficLight.h"
 
 /* Implementation of class "MessageQueue" */
 
-/* 
 template <typename T>
 T MessageQueue<T>::receive()
 {
@@ -19,11 +19,9 @@ void MessageQueue<T>::send(T &&msg)
     // FP.4a : The method send should use the mechanisms std::lock_guard<std::mutex> 
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
 }
-*/
 
 /* Implementation of class "TrafficLight" */
 
-/* 
 TrafficLight::TrafficLight()
 {
     _currentPhase = TrafficLightPhase::red;
@@ -53,6 +51,53 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method 
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
+
+
+// generate number between 4 and 6 as a random number, 
+// you can use random library and mt19937 to generate random number also you can use srand with some calculations to get it
+
+    // https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution
+
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distrib(4, 6);
+    double cycleDuration = distrib(gen);
+
+// getting the time difference between the actual time at this moment and the time at which we toggelled the traffic light at the beginning
+// of the while loop after sleep 1ms would get you the "time between cycles accumlated".
+// as we get a capture of the time when toggling and every time we pass again to the begining of the loop we calculate the time difference 
+// between the capture and the time now if it exceeds the durationcycle generated will would toggle traffic light again and get another capture
+// of time for the next calculation.
+
+    while(true){
+        auto startT = std::chrono::system_clock::now();
+
+        if (_currentPhase == TrafficLightPhase::red){
+            _currentPhase = TrafficLightPhase::green;
+        }else{
+            _currentPhase = TrafficLightPhase::red;
+        }
+
+        // std::this_thread::sleep_for(std::chrono::milliseconds(1));  do I include here?
+
+        auto endT = std::chrono::system_clock::now();
+
+        double elapsed_time_ms = std::chrono::duration<double, std::milli>(startT-endT).count(); // ms
+
+        auto snd = std::async(
+            std::launch::async,
+            &MessageQueue<TrafficLightPhase>::send,
+            &_messageQueue,
+            std::move(_currentPhase)
+        );
+        snd.wait();
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
 }
 
-*/
+//"why this time difference happens", because when we sleep for 1ms this sleep will result in leave the function body for at least 1ms depends
+//  on the schedular and the running threads at this time, also "cycleThroughPhases" is running through threads as requried in 
+//  simulate which means also it may leave the processor for another thread and from this appear the time difference.
+
+
+

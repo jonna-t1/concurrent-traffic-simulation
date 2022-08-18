@@ -102,7 +102,6 @@ void TrafficLight::cycleThroughPhases()
             _currentPhase = TrafficLightPhase::red;
         }
 
-        // std::this_thread::sleep_for(std::chrono::milliseconds(1));  do I include here?
         std::future<void> snd = std::async(
             std::launch::async,
             &MessageQueue<TrafficLightPhase>::send,

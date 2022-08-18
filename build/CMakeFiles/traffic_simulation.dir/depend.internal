@@ -5,6 +5,7 @@ CMakeFiles/traffic_simulation.dir/src/Graphics.cpp.o
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Graphics.cpp
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Graphics.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
+ /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
@@ -45,12 +46,14 @@ CMakeFiles/traffic_simulation.dir/src/Intersection.cpp.o
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.cpp
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h
 CMakeFiles/traffic_simulation.dir/src/Street.cpp.o
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.cpp
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h
 CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o
@@ -64,6 +67,7 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Graphics.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficSimulator-Final.cpp
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h
@@ -100,6 +104,7 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o
 CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.cpp
  /home/jobo/projects/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h

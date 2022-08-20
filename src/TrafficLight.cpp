@@ -92,23 +92,36 @@ void TrafficLight::cycleThroughPhases()
 // between the capture and the time now if it exceeds the durationcycle generated will would toggle traffic light again and get another capture
 // of time for the next calculation.
 
+    double cycleDuration = 1; // duration of a single simulation cycle in ms
+    std::chrono::time_point<std::chrono::system_clock> lastUpdate;
+    lastUpdate = std::chrono::system_clock::now();
+
     while(true){
-        std::this_thread::sleep_for(std::chrono::milliseconds(distrib(gen)));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(distrib(gen)));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        long timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - lastUpdate).count();
         auto startT = std::chrono::system_clock::now();
+        if (timeSinceLastUpdate >= cycleDuration)
+        {
 
-        if (_currentPhase == TrafficLightPhase::red){
-            _currentPhase = TrafficLightPhase::green;
-        }else{
-            _currentPhase = TrafficLightPhase::red;
+            if (_currentPhase == TrafficLightPhase::red){
+                _currentPhase = TrafficLightPhase::green;
+            }else{
+                _currentPhase = TrafficLightPhase::red;
+            }
+
+            std::future<void> snd = std::async(
+                std::launch::async,
+                &MessageQueue<TrafficLightPhase>::send,
+                _messageQueue,
+                std::move(_currentPhase)
+            );
+            snd.wait();
+
+            // reset stop watch for next cycle
+            lastUpdate = std::chrono::system_clock::now();
+
         }
-
-        std::future<void> snd = std::async(
-            std::launch::async,
-            &MessageQueue<TrafficLightPhase>::send,
-            _messageQueue,
-            std::move(_currentPhase)
-        );
-        snd.wait();
 
         auto endT = std::chrono::system_clock::now();
 

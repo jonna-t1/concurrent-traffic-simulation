@@ -82,7 +82,7 @@ void TrafficLight::cycleThroughPhases()
     // https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution
 
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    static std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     std::uniform_int_distribution<> distrib(4000, 6000);
     double cycleDuration = distrib(gen);
 

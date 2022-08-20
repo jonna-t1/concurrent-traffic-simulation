@@ -84,7 +84,6 @@ void TrafficLight::cycleThroughPhases()
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     static std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     std::uniform_int_distribution<> distrib(4000, 6000);
-    double cycleDuration = distrib(gen);
 
 // getting the time difference between the actual time at this moment and the time at which we toggelled the traffic light at the beginning
 // of the while loop after sleep 1ms would get you the "time between cycles accumlated".
@@ -92,7 +91,7 @@ void TrafficLight::cycleThroughPhases()
 // between the capture and the time now if it exceeds the durationcycle generated will would toggle traffic light again and get another capture
 // of time for the next calculation.
 
-    double cycleDuration = 1; // duration of a single simulation cycle in ms
+    double cycleDuration = distrib(gen); // duration of a single simulation cycle in ms
     std::chrono::time_point<std::chrono::system_clock> lastUpdate;
     lastUpdate = std::chrono::system_clock::now();
 
@@ -126,8 +125,6 @@ void TrafficLight::cycleThroughPhases()
         auto endT = std::chrono::system_clock::now();
 
         double elapsed_time_ms = std::chrono::duration<double, std::milli>(startT-endT).count(); // ms
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
     }
 }

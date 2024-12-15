@@ -20,12 +20,13 @@ Throughout the Concurrency course, you have been developing a traffic simulation
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
-## Basic Build Instructions
+## Basic Build Instructions on linux systems
 
 1. Clone this repo.
-2. Make a build directory in the top level directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./traffic_simulation`.
+2. `sudo apt install libopencv-dev`
+3. Make a build directory in the top level directory: `mkdir build && cd build`
+4. Compile: `cmake .. && make`
+5. Run it: `./traffic_simulation`.
 
 ## Project Tasks
 

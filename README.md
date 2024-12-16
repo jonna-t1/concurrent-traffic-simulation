@@ -23,7 +23,7 @@ Throughout the Concurrency course, you have been developing a traffic simulation
 ## Basic Build Instructions on linux systems
 
 1. Clone this repo.
-2. `sudo apt install libopencv-dev`
+2. `sudo apt install libopencv-dev cmake`
 3. Make a build directory in the top level directory: `mkdir build && cd build`
 4. Compile: `cmake .. && make`
 5. Run it: `./traffic_simulation`.
